@@ -3,6 +3,7 @@ import "./index.css";
 
 const ICONS = [
   "home",
+  "ni-house",
   "user",
   "search",
   "settings",
@@ -134,9 +135,13 @@ export default function App() {
   return (
     <main className="min-h-screen bg-base p-8 flex flex-col">
       <header className="mb-8 text-center relative">
-        <h1 className="text-3xl font-bold text-base-content py-4">Niu-Icons</h1>
+        <div className="flex justify-center  p-2">
+          <img src="/niu-icons.svg" alt="Niu-Icons" className="w-12 h-12 " />
+          <h1 className="text-3xl font-bold text-base-content pb-3 ml-4 mb-4 ">Niu-Icons</h1>
+        </div>
+       
         <p className="text-gray-600 dark:text-gray-300 mt-2">
-          Free SVG icons with attribution. Click to view, copy or download!
+          Free SVG icons with attribution. Simply, click to view, copy or download!
         </p>
 
         <input
@@ -170,7 +175,7 @@ export default function App() {
         </section>
       </div>
       
-      <footer className="mt-12 py-4 text-base-content opacity-70 border-t border-base-200">
+      <footer className="mt-12 py-4 text-base-content opacity-70 border-t border-base-200 max-w-5xl mx-auto container">
             <div className="container mx-auto flex justify-between items-center px-4">
               <p className="text-sm">Made with ❤️ in Papua New Guinea</p>
               <a 
