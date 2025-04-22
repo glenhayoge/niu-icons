@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useEffect, useState } from "react";
 import "./index.css";
 
@@ -8,7 +7,11 @@ const ICONS = [
   "search",
   "settings",
   "star",
-  // Add more icon names that match your public/icons/*.svg
+  "farming",
+  "solar-farm",
+  "solar-panel",
+  "wind-turbine",
+  "water-pump",
 ];
 
 
@@ -24,14 +27,16 @@ const IconCard = ({ name, onClick }) => {
 
   return (
     <div
-      className="flex flex-col items-center border rounded-2xl p-4 shadow hover:shadow-md transition cursor-pointer"
+      className="card bg-base-100 shadow border border-base-200 hover:shadow-lg transition cursor-pointer"
       onClick={() => onClick(name, svgContent)}
     >
-      <div
-        className="w-12 h-12 mb-2"
-        dangerouslySetInnerHTML={{ __html: svgContent }}
-      />
-      <p className="text-sm text-gray-700 mb-2 text-center">{name}</p>
+      <div className="card-body items-center text-center">
+        <div
+          className="w-12 h-12 mb-2"
+          dangerouslySetInnerHTML={{ __html: svgContent }}
+        />
+        <h2 className="card-title text-sm">{name}</h2>
+      </div>
     </div>
   );
 };
@@ -57,13 +62,13 @@ const IconModal = ({ name, svgContent, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gray-500 bg-opacity-40 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
+    <div className="modal modal-open">
+      <div className="modal-box relative">
         <button
-          className="absolute top-2 right-2 text-gray-500 hover:text-black"
+          className="btn btn-sm btn-circle absolute right-2 top-2"
           onClick={onClose}
         >
-          ✖
+          ✕
         </button>
         <div className="flex flex-col items-center gap-4">
           <div
@@ -74,13 +79,13 @@ const IconModal = ({ name, svgContent, onClose }) => {
           <div className="flex gap-4">
             <button
               onClick={handleCopy}
-              className="px-4 py-2 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
+              className="btn btn-primary"
             >
               {copied ? "Copied!" : "Copy SVG"}
             </button>
             <button
               onClick={handleDownload}
-              className="px-4 py-2 text-sm bg-green-500 text-white rounded hover:bg-green-600"
+              className="btn btn-success"
             >
               Download
             </button>
@@ -99,10 +104,10 @@ export default function App() {
   useEffect(() => {
     const root = window.document.documentElement;
     if (darkMode) {
-      root.classList.add("dark");
+      root.setAttribute('data-theme', 'dark');
       localStorage.setItem("theme", "dark");
     } else {
-      root.classList.remove("dark");
+      root.setAttribute('data-theme', 'light');
       localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
@@ -127,34 +132,61 @@ export default function App() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
-<header className="mb-8 text-center relative">
-  <h1 className="text-3xl font-bold text-gray-900 dark:text-white">🌟 SVG Icon Library</h1>
-  <p className="text-gray-600 dark:text-gray-300 mt-2">
-    Free SVG icons with attribution. Click to view, copy or download!
-  </p>
+    <main className="min-h-screen bg-base p-8 flex flex-col">
+      <header className="mb-8 text-center relative">
+        <h1 className="text-3xl font-bold text-base-content py-4">Niu-Icons</h1>
+        <p className="text-gray-600 dark:text-gray-300 mt-2">
+          Free SVG icons with attribution. Click to view, copy or download!
+        </p>
 
-  <input
-    type="text"
-    placeholder="Search icons..."
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
-    className="mt-4 px-4 py-2 w-full max-w-sm border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
-  />
+        <input
+          type="text"
+          placeholder="Search icons..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="mt-4 px-4 py-2 w-full max-w-sm input input-bordered rounded-xl input-lg"
+        />
 
-  <button
-    onClick={toggleTheme}
-    className="absolute top-0 right-0 m-2 px-3 py-1 text-sm rounded border bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
-  >
-    {darkMode ? "🌙 Dark" : "☀️ Light"}
-  </button>
-</header>
-
-      <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-        {filteredIcons.map((icon) => (
-          <IconCard key={icon} name={icon} onClick={openModal} />
-        ))}
-      </section>
+        <div className="absolute top-0 right-0 m-2">
+          <label className="swap swap-rotate">
+            <input type="checkbox" checked={darkMode} onChange={toggleTheme} />
+            <div className="swap-on">🌙</div>
+            <div className="swap-off">☀️</div>
+          </label>
+        </div>
+      </header>
+      <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto flex-grow">
+        <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          {filteredIcons.length > 0 ? (
+            filteredIcons.map((icon) => (
+              <IconCard key={icon} name={icon} onClick={openModal} />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-8">
+              <p className="text-lg text-base-content opacity-70">No matches found</p>
+              <p className="text-sm mt-2">Try a different search term</p>
+            </div>
+          )}
+        </section>
+      </div>
+      
+      <footer className="mt-12 py-4 text-base-content opacity-70 border-t border-base-200">
+            <div className="container mx-auto flex justify-between items-center px-4">
+              <p className="text-sm">Made with ❤️ in Papua New Guinea</p>
+              <a 
+                href="https://github.com/glenhayoge/niu-icons" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-sm hover:underline flex items-center gap-1 "
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="inline-block mr-2">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub Repository
+              </a>
+            </div>
+          </footer>
+      
       {selectedIcon && (
         <IconModal
           name={modalContent.name}
