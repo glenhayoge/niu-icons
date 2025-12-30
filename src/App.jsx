@@ -28,15 +28,15 @@ const IconCard = ({ name, onClick }) => {
 
   return (
     <div
-      className="card bg-base-100 shadow border border-base-200 hover:shadow-lg transition cursor-pointer"
+      className="card bg-base-300 border border-base-200 hover:border-base-300 transition cursor-pointer"
       onClick={() => onClick(name, svgContent)}
     >
-      <div className="card-body items-center text-center">
+      <div className="card-body h-12 w-12 justify-center items-center text-center">
         <div
-          className="w-12 h-12 mb-2"
+          className="w-7 h-7   "
           dangerouslySetInnerHTML={{ __html: svgContent }}
         />
-        <h2 className="card-title text-sm">{name}</h2>
+        {/* <h2 className="card-title text-sm">{name}</h2> */}
       </div>
     </div>
   );
@@ -160,8 +160,8 @@ export default function App() {
           </label>
         </div>
       </header>
-      <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto flex-grow">
-        <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="flex flex-col items-center justify-center max-w-screen-2xl mx-auto flex-grow">
+        <section className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2">
           {filteredIcons.length > 0 ? (
             filteredIcons.map((icon) => (
               <IconCard key={icon} name={icon} onClick={openModal} />
