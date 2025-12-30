@@ -13,7 +13,7 @@ Built for creators, developers and changemakers who work on meaningful projects 
 - Raw SVG – Copy and paste directly into HTML
 - React-ready (can be turned into components)
 - Light/Dark mode
-- Search, filter, copy, and download easily
+- Search, filter, copy and download easily
 
 ## Getting Started
 
@@ -51,11 +51,13 @@ If you use these icons, please include:
 
 ##  About the Author
 
-Made with 💚 by **Glen Hayoge** — passionate about tech, agriculture, and building tools for rural innovation.  
+Made with 💚 by **Glen Hayoge** — passionate about tech, agriculture and building tech tools for rural development.  
 [GitHub](https://github.com/glenhayoge)
 
 ## License
 
 Free to use under the [Attribution License](./LICENSE). Please credit **Niu Icons** in your project.
+
+Temporarily using lucide icons as placeholders. 
 
 ---
