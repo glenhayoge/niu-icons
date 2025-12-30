@@ -15,6 +15,21 @@ const ICONS = [
   "tree-palm",
   "tree",
   "tree-pine",
+  "bug",
+  "snail",
+  "worm",
+  "wheat",
+  "salad",
+  "tractor",
+  "cherry",
+  "fish",
+  "church",
+  "fence",
+  "store",
+  "power-pole",
+
+
+
 ];
 
 
@@ -66,7 +81,7 @@ const IconModal = ({ name, svgContent, onClose }) => {
 
   return (
     <div className="modal modal-open">
-      <div className="modal-box w-11/12 max-w-4xl p-0 overflow-hidden relative flex flex-col md:flex-row bg-base-100">
+      <div className="modal-box w-11/12 max-w-3xl p-0 overflow-hidden relative flex flex-col md:flex-row bg-base-100">
         <button
           className="btn btn-sm btn-circle mixed btn-ghost absolute right-4 top-4 z-10"
           onClick={onClose}

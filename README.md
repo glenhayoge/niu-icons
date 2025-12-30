@@ -2,7 +2,7 @@
 
 **Niu Icons** is a free and open collection of SVG icons designed specifically around themes of **rural development**, **farming and agriculture**, **sustainable development**, and the **cross-section between technology and local communities**.
 
-Built for creators, developers, and changemakers who work on meaningful projects that aim to bridge the digital divide and build a better world.
+Built for creators, developers and changemakers who work on meaningful projects that aim to bridge the digital divide and build a better world.
 
 ![Niu Icons Preview](./preview.png)
 
