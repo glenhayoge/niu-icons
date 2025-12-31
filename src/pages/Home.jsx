@@ -11,7 +11,7 @@ export default function Home() {
                         Open source SVG icons, handcrafted with love. Perfect for modern web applications & digital designs.
                     </p>
                     <div className="flex gap-4 justify-center">
-                        <a href="/icons" className="btn btn-primary">Browse Icons</a>
+                        <a href="/icons" className="btn btn-base">Browse Icons</a>
                         <a href="/guide" className="btn btn-ghost">Read Guide</a>
                     </div>
                 </div>

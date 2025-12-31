@@ -30,7 +30,7 @@ export default function Guide() {
                 <div className="divider"></div>
 
                 <h3 className="py-4 font-bold text-lg">Contributing</h3>
-                <p>
+                <p className="py-2">
                     We welcome contributions! Whether you're a designer or developer, you can help grow NiuIcons.
                 </p>
                 <ul className="list-disc pl-5 space-y-2">

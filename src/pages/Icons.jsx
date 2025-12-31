@@ -57,7 +57,7 @@ const IconModal = ({ name, svgContent, contributor, onClose }) => {
                 </button>
 
                 {/* Left Side: Icon */}
-                <div className="w-full md:w-1/2 bg-base-200/50 flex items-center justify-center p-12 min-h-[300px] relative">
+                <div className="w-full md:w-1/2 bg-base-300/50 flex items-center justify-center p-12 min-h-[300px] relative">
                     {/* Grid Background */}
                     <div
                         className="absolute inset-0 opacity-10 pointer-events-none"
@@ -80,7 +80,7 @@ const IconModal = ({ name, svgContent, contributor, onClose }) => {
                     <div className="flex flex-col gap-3 w-full max-w-xs transition-all">
                         <button
                             onClick={handleCopy}
-                            className="btn btn-primary w-full shadow-lg hover:shadow-xl transition-all"
+                            className="btn btn-base w-full transition-all"
                         >
                             {copied ? "Copied!" : "Copy SVG"}
                         </button>

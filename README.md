@@ -58,6 +58,6 @@ Made with 💚 by **Glen Hayoge** — passionate about tech, agriculture and bui
 
 Free to use under the [Attribution License](./LICENSE). Please credit **Niu Icons** in your project.
 
-Temporarily using lucide icons as placeholders. 
+# Currently, this app is temporarily using [Lucide icons](https://lucide.dev/) as placeholders. 
 
 ---
