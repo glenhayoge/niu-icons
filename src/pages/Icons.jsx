@@ -16,12 +16,11 @@ const IconCard = ({ name, onClick }) => {
             className="card bg-base-300 border border-base-200 hover:border-base-300 transition cursor-pointer"
             onClick={() => onClick(name, svgContent)}
         >
-            <div className="card-body h-12 w-12 justify-center items-center text-center">
+            <div className="card-body h-12 w-12  justify-center mx-auto items-center text-center">
                 <div
-                    className="w-7 h-7"
+                    className="w-7 h-7 text-center"
                     dangerouslySetInnerHTML={{ __html: svgContent }}
                 />
-                {/* <h2 className="card-title text-sm">{name}</h2> */}
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ export default function Navbar({ toggleTheme, darkMode }) {
         <div className="navbar bg-base-100 max-w-3xl mx-auto w-full  sticky top-0 z-50 px-4 sm:px-8">
             <div className="flex-1">
                 <a href="/" className="btn btn-ghost text-xl gap-2 px-2">
-                    <img src="/niu-icons.svg" alt="Niu-Icons" className="w-8 h-8 rounded-full bg-black" />
+                    <img src="/niu-icons.svg" alt="Niu-Icons" className="w-8 h-8" />
                     <span className="font-bold tracking-wide">Niu<span className="text-gray-400 font-normal">Icons</span></span>
                 </a>
             </div>
