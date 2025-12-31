@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+:root {
+    font-family: "Nunito Sans", sans-serif;
+}
+
 @plugin "daisyui/theme" {
     name: "cupcake";
     default: false;

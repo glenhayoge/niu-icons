@@ -1,18 +1,24 @@
 export default function Guide() {
     return (
         <div className="max-w-3xl mx-auto w-full py-12 px-4">
-            <h1 className="text-4xl font-bold mb-8">Guide & Documentation</h1>
+            <h1 className="text-2xl font-bold mb-8">Guide & Documentation</h1>
 
             <div className="prose prose-lg max-w-none">
-                <h3>What is Niu Icons?</h3>
-                <p>
-                    Niu Icons is an open-source collection of SVG icons designed for simplicity and flexibility.
-                    Originally created for a personal project, it has grown into a community-driven library.
+                <h3 className="py-4 font-bold text-lg">What is NiuIcon?</h3>
+                <p className="py-2">
+                    NiuIcon is an open-source collection of SVG icons designed for simplicity and flexibility.
+                    The icons are created as a personal project, with plans to expand into a community-driven library.
+                </p>
+                <p className="py-2">
+                    Designed specifically around themes of rural development, farming and agriculture, sustainable development and the cross-section between technology and local communities.
+                </p>
+                <p className="py-2">
+                    Built for creators, developers and changemakers who work on meaningful projects that aim to bridge the digital divide and build a better world.
                 </p>
 
                 <div className="divider"></div>
 
-                <h3>Installation</h3>
+                <h3 className="py-4 font-bold text-lg">Installation</h3>
                 <div className="mockup-code">
                     <pre data-prefix="$"><code>npm install niu-icons</code></pre>
                     <pre data-prefix=">" className="text-warning"><code>(Coming soon to npm)</code></pre>
@@ -23,9 +29,9 @@ export default function Guide() {
 
                 <div className="divider"></div>
 
-                <h3>Contributing</h3>
+                <h3 className="py-4 font-bold text-lg">Contributing</h3>
                 <p>
-                    We welcome contributions! Whether you're a designer or developer, you can help grow Niu Icons.
+                    We welcome contributions! Whether you're a designer or developer, you can help grow NiuIcons.
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
                     <li>Fork the repository on GitHub.</li>
