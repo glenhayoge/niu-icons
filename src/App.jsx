@@ -28,7 +28,7 @@ const IconCard = ({ name, onClick }) => {
   );
 };
 
-const IconModal = ({ name, svgContent, onClose }) => {
+const IconModal = ({ name, svgContent, contributor, onClose }) => {
   const [copied, setCopied] = useState(false);
   const handleCopy = async () => {
     if (svgContent) {
@@ -59,9 +59,18 @@ const IconModal = ({ name, svgContent, onClose }) => {
         </button>
 
         {/* Left Side: Icon */}
-        <div className="w-full md:w-1/2 bg-base-200 flex items-center justify-center p-12 min-h-[300px]">
+        <div className="w-full md:w-1/2 bg-base-200/50 flex items-center justify-center p-12 min-h-[300px] relative">
+          {/* Grid Background */}
           <div
-            className="w-48 h-48 [&>svg]:w-full [&>svg]:h-full"
+            className="absolute inset-0 opacity-10 pointer-events-none"
+            style={{
+              backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
+              backgroundSize: "20px 20px"
+            }}
+          ></div>
+
+          <div
+            className="w-48 h-48 [&>svg]:w-full [&>svg]:h-full z-10 drop-shadow-sm"
             dangerouslySetInnerHTML={{ __html: svgContent }}
           />
         </div>
@@ -83,6 +92,14 @@ const IconModal = ({ name, svgContent, onClose }) => {
             >
               Download SVG
             </button>
+
+            {contributor && (
+              <div className="mt-4 text-center">
+                <p className="text-xs text-base-content/60">
+                  Contributor: <a href={`https://github.com/${contributor}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline font-medium">@{contributor}</a>
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -120,13 +137,14 @@ export default function App() {
   });
 
   const openModal = (name, svg) => {
-    setModalContent({ name, svg });
+    const iconData = ICONS_DATA.find(i => i.name === name);
+    setModalContent({ name, svg, contributor: iconData?.contributor });
     setSelectedIcon(true);
   };
 
   const closeModal = () => {
     setSelectedIcon(false);
-    setModalContent({ name: "", svg: "" });
+    setModalContent({ name: "", svg: "", contributor: "" });
   };
 
   return (
@@ -231,6 +249,7 @@ export default function App() {
         <IconModal
           name={modalContent.name}
           svgContent={modalContent.svg}
+          contributor={modalContent.contributor}
           onClose={closeModal}
         />
       )}
