@@ -38,10 +38,10 @@ npm run build
 
 ## Roadmap
 
+- Categories (Agro-tech, Community, Tools, Infrastructure, etc.)
+- Icon submission portal
 - Publish as React and Vue components on npm
 - Support for Figma plugin export
-- Categories (Agro-tech, Community, Tools, Infra, etc.)
-- Icon submission portal
 
 ## Attribution
 

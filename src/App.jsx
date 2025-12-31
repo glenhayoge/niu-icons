@@ -1,37 +1,6 @@
 import { useEffect, useState } from "react";
 import "./index.css";
-
-const ICONS = [
-  "home",
-  "rose",
-  "lime",
-  "carrot",
-  "cooking-pot",
-  "trees",
-  "flower",
-  "leaf-nature",
-  "spade",
-  "sprout",
-  "tree-palm",
-  "tree",
-  "tree-pine",
-  "bug",
-  "snail",
-  "worm",
-  "wheat",
-  "salad",
-  "tractor",
-  "cherry",
-  "fish",
-  "church",
-  "fence",
-  "store",
-  "power-pole",
-
-
-
-];
-
+import { ICONS_DATA, CATEGORIES } from "./data";
 
 const IconCard = ({ name, onClick }) => {
   const [svgContent, setSvgContent] = useState("");
@@ -142,10 +111,13 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [selectedIcon, setSelectedIcon] = useState(false);
   const [modalContent, setModalContent] = useState({ name: "", svg: "" });
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredIcons = ICONS.filter((icon) =>
-    icon.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredIcons = ICONS_DATA.filter((icon) => {
+    const matchesSearch = icon.name.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = activeCategory === "All" || icon.category === activeCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   const openModal = (name, svg) => {
     setModalContent({ name, svg });
@@ -168,6 +140,21 @@ export default function App() {
         <p className="text-base mt-2">
           Free SVG icons with attribution. Simply, click to view, copy or download!
         </p>
+
+        <div className="flex justify-center my-6">
+          <div role="tablist" className="tabs tabs-boxed">
+            {CATEGORIES.map((category) => (
+              <a
+                key={category}
+                role="tab"
+                className={`tab ${activeCategory === category ? "tab-active" : ""}`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category}
+              </a>
+            ))}
+          </div>
+        </div>
 
         <label className="input input-bordered rounded-xl mt-4 input-lg flex items-center gap-2 w-full max-w-4xl">
           <svg
@@ -212,7 +199,7 @@ export default function App() {
         <section className="grid grid-cols-6 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-12 gap-2">
           {filteredIcons.length > 0 ? (
             filteredIcons.map((icon) => (
-              <IconCard key={icon} name={icon} onClick={openModal} />
+              <IconCard key={icon.name} name={icon.name} onClick={openModal} />
             ))
           ) : (
             <div className="col-span-full text-center py-8">
