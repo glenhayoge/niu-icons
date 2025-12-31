@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Guide() {
     return (
         <div className="max-w-3xl mx-auto w-full py-12 px-4">
@@ -24,7 +26,7 @@ export default function Guide() {
                     <pre data-prefix=">" className="text-warning"><code>(Coming soon to npm)</code></pre>
                 </div>
                 <p className="mt-4">
-                    Currently, you can simply download the SVGs directly or copy the code from the <a href="/icons" className="link">Icons page</a>.
+                    Currently, you can simply download the SVGs directly or copy the code from the <Link to="/icons" className="link">Icons page</Link>.
                 </p>
 
                 <div className="divider"></div>

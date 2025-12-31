@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Home() {
     return (
         <div className="hero min-h-[70vh]">
@@ -11,8 +13,8 @@ export default function Home() {
                         Open source SVG icons, handcrafted with love. Perfect for modern web applications & digital designs.
                     </p>
                     <div className="flex gap-4 justify-center">
-                        <a href="/icons" className="btn btn-base">Browse Icons</a>
-                        <a href="/guide" className="btn btn-ghost">Read Guide</a>
+                        <Link to="/icons" className="btn btn-base">Browse Icons</Link>
+                        <Link to="/guide" className="btn btn-ghost">Read Guide</Link>
                     </div>
                 </div>
             </div>
