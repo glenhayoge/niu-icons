@@ -18,8 +18,8 @@ export default function App() {
       root.setAttribute('data-theme', 'dark');
       localStorage.setItem("theme", "dark");
     } else {
-      root.setAttribute('data-theme', 'light');
-      localStorage.setItem("theme", "light");
+      root.setAttribute('data-theme', 'cupcake');
+      localStorage.setItem("theme", "cupcake");
     }
   }, [darkMode]);
 
