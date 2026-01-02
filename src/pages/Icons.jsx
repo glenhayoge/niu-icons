@@ -131,7 +131,7 @@ export default function Icons() {
 
     return (
         <div className="flex flex-col items-center max-w-3xl mx-auto justify-center max-w-screen-3xl mx-auto flex-grow w-full">
-            <div className="max-w-4xl mx-auto text-center justify-center relative w-full mb-12">
+            <div className="max-w-4xl px-4 mx-auto text-center justify-center relative w-full mb-12">
                 <h2 className="text-3xl font-bold mb-6">Browse Icons</h2>
 
                 <div className="flex justify-center my-6">
@@ -181,7 +181,7 @@ export default function Icons() {
                 </label>
             </div>
 
-            <section className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-3 w-full">
+            <section className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-3 px-4 w-full">
                 {filteredIcons.length > 0 ? (
                     filteredIcons.map((icon) => (
                         <IconCard key={icon.name} name={icon.name} onClick={openModal} />
