@@ -39,4 +39,7 @@ export const ICONS_DATA = [
 
     // Tools
     { name: "spade", category: "Tools", contributor: "lucide-icons" },
+    { name: "guitar", category: "Tools", contributor: "lucide-icons" },
+    { name: "guitar-1", category: "Tools", contributor: "lucide-icons" },
+    { name: "guitar-2", category: "Tools", contributor: "lucide-icons" },
 ];

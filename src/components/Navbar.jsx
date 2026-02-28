@@ -6,7 +6,7 @@ export default function Navbar({ toggleTheme, darkMode }) {
             <div className="flex-1">
                 <Link to="/" className="flex inline-flex text-xl gap-2 px-2">
                     <img src="/niu-icons.svg" alt="Niu-Icons" className="w-8 h-8" />
-                    <span className="font-bold tracking-wide">Niu<span className="text-gray-400 font-normal">Icons</span></span>
+                    <span className="font-bold tracking-wide">Niu<span className="text-gray-400 font-bold">Icons</span></span>
                 </Link>
             </div>
             <div className="flex-none gap-2">
